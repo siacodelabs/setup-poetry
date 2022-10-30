@@ -7,10 +7,6 @@ branding:
   color: gray-dark
 
 inputs:
-  poetry-version:
-    description: Poetry version to install.
-    required: false
-
   setup-python:
     description: Install Python.
     required: false
@@ -31,8 +27,5 @@ runs:
     
     - name: Install Poetry
       shell: bash
-      env:
-        version: ${{ env.poetry-version }}
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
-        [[ ! -z "${{ env.version }}" ]] && poetry self update ${{ env.version }}
